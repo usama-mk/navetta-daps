@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Generator</title>
+  </head>
+  <body>
+    <canvas
+      id="heroCanvas"
+      width="800"
+      height="600"
+      style="border: 1px solid #ccc"
+    ></canvas>
+    <canvas
+      id="mapCanvas"
+      width="800"
+      height="600"
+      style="border: 1px solid #ccc"
+    ></canvas>
+    <canvas
+      id="teamCanvas"
+      width="800"
+      height="600"
+      style="border: 1px solid #ccc"
+    ></canvas>
+
+    <script>
+      // Create Hero Image
+      const heroCanvas = document.getElementById("heroCanvas");
+      const heroCtx = heroCanvas.getContext("2d");
+
+      // Background gradient
+      const heroGradient = heroCtx.createLinearGradient(0, 0, 800, 600);
+      heroGradient.addColorStop(0, "#1e40af");
+      heroGradient.addColorStop(1, "#2563eb");
+      heroCtx.fillStyle = heroGradient;
+      heroCtx.fillRect(0, 0, 800, 600);
+
+      // Ground
+      heroCtx.fillStyle = "rgba(34, 197, 94, 0.3)";
+      heroCtx.fillRect(0, 450, 800, 150);
+
+      // Truck
+      heroCtx.fillStyle = "#1d4ed8";
+      heroCtx.fillRect(500, 300, 250, 120);
+      heroCtx.fillRect(520, 250, 210, 70);
+
+      // Wheels
+      heroCtx.fillStyle = "#1f2937";
+      heroCtx.beginPath();
+      heroCtx.arc(580, 440, 25, 0, 2 * Math.PI);
+      heroCtx.fill();
+      heroCtx.beginPath();
+      heroCtx.arc(670, 440, 25, 0, 2 * Math.PI);
+      heroCtx.fill();
+
+      // Dumpster
+      heroCtx.fillStyle = "#374151";
+      heroCtx.fillRect(100, 350, 120, 100);
+
+      // Text
+      heroCtx.fillStyle = "white";
+      heroCtx.font = "bold 36px Arial";
+      heroCtx.textAlign = "center";
+      heroCtx.fillText("Professional DAPS Team", 400, 150);
+      heroCtx.font = "18px Arial";
+      heroCtx.fillText("Loading Furniture & Appliances", 400, 180);
+      heroCtx.fillText("South Holland, Illinois", 400, 205);
+
+      // Create Map Image
+      const mapCanvas = document.getElementById("mapCanvas");
+      const mapCtx = mapCanvas.getContext("2d");
+
+      // Background
+      const mapGradient = mapCtx.createLinearGradient(0, 0, 800, 600);
+      mapGradient.addColorStop(0, "#f0f9ff");
+      mapGradient.addColorStop(1, "#e0f2fe");
+      mapCtx.fillStyle = mapGradient;
+      mapCtx.fillRect(0, 0, 800, 600);
+
+      // Map outline
+      mapCtx.fillStyle = "white";
+      mapCtx.fillRect(50, 50, 700, 500);
+      mapCtx.strokeStyle = "#e2e8f0";
+      mapCtx.lineWidth = 2;
+      mapCtx.strokeRect(50, 50, 700, 500);
+
+      // Service area
+      mapCtx.fillStyle = "rgba(37, 99, 235, 0.3)";
+      mapCtx.beginPath();
+      mapCtx.ellipse(400, 300, 250, 180, 0, 0, 2 * Math.PI);
+      mapCtx.fill();
+      mapCtx.strokeStyle = "#2563eb";
+      mapCtx.lineWidth = 3;
+      mapCtx.setLineDash([5, 5]);
+      mapCtx.stroke();
+      mapCtx.setLineDash([]);
+
+      // Location markers
+      const locations = [
+        { x: 350, y: 280, name: "South Holland" },
+        { x: 420, y: 250, name: "Oak Lawn" },
+        { x: 480, y: 320, name: "Tinley Park" },
+        { x: 320, y: 350, name: "Dolton" },
+        { x: 280, y: 300, name: "Harvey" },
+        { x: 380, y: 380, name: "Calumet City" },
+        { x: 450, y: 280, name: "Homewood" },
+        { x: 400, y: 400, name: "Markham" },
+      ];
+
+      locations.forEach((loc) => {
+        mapCtx.fillStyle = "#2563eb";
+        mapCtx.beginPath();
+        mapCtx.arc(loc.x, loc.y, 8, 0, 2 * Math.PI);
+        mapCtx.fill();
+
+        mapCtx.fillStyle = "#1e293b";
+        mapCtx.font = "12px Arial";
+        mapCtx.textAlign = "center";
+        mapCtx.fillText(loc.name, loc.x, loc.y + 20);
+      });
+
+      // Title
+      mapCtx.fillStyle = "#1e293b";
+      mapCtx.font = "bold 24px Arial";
+      mapCtx.fillText("DAPS Service Coverage Area", 400, 100);
+      mapCtx.font = "14px Arial";
+      mapCtx.fillText("Cook County & South Suburban Chicago", 400, 125);
+
+      // Create Team Image
+      const teamCanvas = document.getElementById("teamCanvas");
+      const teamCtx = teamCanvas.getContext("2d");
+
+      // Background
+      const teamGradient = teamCtx.createLinearGradient(0, 0, 800, 600);
+      teamGradient.addColorStop(0, "#f0f9ff");
+      teamGradient.addColorStop(1, "#e0f2fe");
+      teamCtx.fillStyle = teamGradient;
+      teamCtx.fillRect(0, 0, 800, 600);
+
+      // Team members
+      const teamMembers = [
+        { x: 200, y: 200, color: "#3b82f6" },
+        { x: 400, y: 200, color: "#10b981" },
+        { x: 600, y: 200, color: "#8b5cf6" },
+      ];
+
+      teamMembers.forEach((member) => {
+        // Person
+        teamCtx.fillStyle = member.color;
+        teamCtx.beginPath();
+        teamCtx.arc(member.x, member.y, 80, 0, 2 * Math.PI);
+        teamCtx.fill();
+
+        // Body
+        teamCtx.fillStyle = member.color;
+        teamCtx.fillRect(member.x - 50, member.y + 80, 100, 120);
+
+        // Head
+        teamCtx.fillStyle = "#fbbf24";
+        teamCtx.beginPath();
+        teamCtx.arc(member.x, member.y - 20, 20, 0, 2 * Math.PI);
+        teamCtx.fill();
+
+        // Equipment
+        teamCtx.fillStyle = "#374151";
+        teamCtx.fillRect(member.x - 40, 450, 80, 40);
+      });
+
+      // Title
+      teamCtx.fillStyle = "#1e293b";
+      teamCtx.font = "bold 36px Arial";
+      teamCtx.textAlign = "center";
+      teamCtx.fillText("Our Professional Team", 400, 100);
+      teamCtx.font = "18px Arial";
+      teamCtx.fillText("Experienced & Reliable", 400, 130);
+
+      // Stats
+      teamCtx.fillStyle = "white";
+      teamCtx.fillRect(50, 500, 150, 80);
+      teamCtx.fillStyle = "#2563eb";
+      teamCtx.font = "bold 24px Arial";
+      teamCtx.fillText("500+", 125, 530);
+      teamCtx.font = "14px Arial";
+      teamCtx.fillText("Happy Customers", 125, 550);
+
+      teamCtx.fillStyle = "white";
+      teamCtx.fillRect(600, 500, 150, 80);
+      teamCtx.fillStyle = "#2563eb";
+      teamCtx.font = "bold 24px Arial";
+      teamCtx.fillText("5+", 675, 530);
+      teamCtx.font = "14px Arial";
+      teamCtx.fillText("Years Experience", 675, 550);
+
+      // Download buttons
+      setTimeout(() => {
+        const heroDataURL = heroCanvas.toDataURL("image/png");
+        const mapDataURL = mapCanvas.toDataURL("image/png");
+        const teamDataURL = teamCanvas.toDataURL("image/png");
+
+        console.log("Hero Image Data URL:", heroDataURL);
+        console.log("Map Image Data URL:", mapDataURL);
+        console.log("Team Image Data URL:", teamDataURL);
+
+        // Create download links
+        const heroLink = document.createElement("a");
+        heroLink.download = "hero-image.png";
+        heroLink.href = heroDataURL;
+        heroLink.textContent = "Download Hero Image";
+        document.body.appendChild(heroLink);
+
+        const mapLink = document.createElement("a");
+        mapLink.download = "map-image.png";
+        mapLink.href = mapDataURL;
+        mapLink.textContent = "Download Map Image";
+        document.body.appendChild(mapLink);
+
+        const teamLink = document.createElement("a");
+        teamLink.download = "team-image.png";
+        teamLink.href = teamDataURL;
+        teamLink.textContent = "Download Team Image";
+        document.body.appendChild(teamLink);
+      }, 1000);
+    </script>
+  </body>
+</html>
