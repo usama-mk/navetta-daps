@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DAPS - Junk Removal & Dumpster Rental</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>DAPS</h2>
+        </div>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#service-areas" class="nav-link">Areas</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#quote" class="nav-link cta-button">Get Free Quote</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-background">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge">
+            <i class="fas fa-shield-alt"></i>
+            Licensed & Insured in Illinois
+          </div>
+          <h1 class="hero-title">
+            <span class="title-line">Fast & Affordable</span>
+            <span class="title-line">Junk Removal + Dumpster Rental</span>
+          </h1>
+          <p class="hero-subtitle">South Holland, Oak Lawn & Tinley Park</p>
+          <p class="hero-description">
+            Serving Cook County & Beyond – Same-Day Pickup Available
+          </p>
+          <div class="hero-features">
+            <div class="feature-badge">
+              <i class="fas fa-clock"></i>
+              Same-Day Service Available
+            </div>
+            <div class="feature-badge">
+              <i class="fas fa-leaf"></i>
+              Eco-Friendly Disposal
+            </div>
+            <div class="feature-badge">
+              <i class="fas fa-dollar-sign"></i>
+              Free Estimates
+            </div>
+          </div>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="scrollToSection('quote')">
+              Get a Free Quote
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <button
+              class="btn btn-secondary"
+              onclick="window.open('tel:5551234567')"
+            >
+              <i class="fas fa-phone"></i>
+              Call (555) 123-4567
+            </button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-container">
+            <img
+              src="images/junk-removal-hero.jpg"
+              alt="Professional DAPS junk removal team loading furniture and appliances into truck in South Holland, Illinois"
+              class="hero-img"
+            />
+            <div class="floating-cards">
+              <div class="floating-card">
+                <div class="card-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="card-content">
+                  <h4>Same Day Service</h4>
+                  <p>Quick & Reliable</p>
+                </div>
+              </div>
+              <div class="floating-card">
+                <div class="card-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="card-content">
+                  <h4>5.0 Rating</h4>
+                  <p>50+ Reviews</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            Comprehensive junk removal and dumpster rental solutions
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-icon">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+            <h3>Junk Removal</h3>
+            <p>
+              Professional removal of unwanted items from your home or business.
+              We handle everything from furniture to electronics.
+            </p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Same-day pickup</li>
+              <li><i class="fas fa-check"></i> Eco-friendly disposal</li>
+              <li><i class="fas fa-check"></i> Free estimates</li>
+            </ul>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-icon">
+              <i class="fas fa-dumpster"></i>
+            </div>
+            <h3>Dumpster Rental</h3>
+            <p>
+              Convenient dumpster rental for large projects. Perfect for home
+              renovations, construction, or major cleanouts.
+            </p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Multiple sizes available</li>
+              <li><i class="fas fa-check"></i> Flexible rental periods</li>
+              <li><i class="fas fa-check"></i> Easy pickup & delivery</li>
+            </ul>
+          </div>
+          <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="fas fa-recycle"></i>
+            </div>
+            <h3>Eco-Friendly Disposal</h3>
+            <p>
+              Responsible disposal methods that prioritize recycling and
+              environmental sustainability.
+            </p>
+            <ul class="service-features">
+              <li><i class="fas fa-check"></i> Recycling programs</li>
+              <li><i class="fas fa-check"></i> Donation partnerships</li>
+              <li><i class="fas fa-check"></i> Green disposal methods</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Simple, Transparent Pricing for Cook County
+          </h2>
+          <p class="section-subtitle">
+            No hidden fees or surprises. Get upfront pricing for all your junk
+            removal and dumpster rental needs.
+          </p>
+        </div>
+        <div class="pricing-grid">
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Most Popular in Cook County</div>
+            <div class="pricing-icon">
+              <i class="fas fa-dumpster"></i>
+            </div>
+            <h3>Dumpster Rental Cook County</h3>
+            <div class="price">
+              <span class="currency">$</span>
+              <span class="amount">325</span>
+              <span class="range">- $495</span>
+            </div>
+            <p class="price-description">
+              Perfect for construction projects, home renovations, and large
+              cleanouts in Cook County
+            </p>
+            <ul class="pricing-features">
+              <li>
+                <i class="fas fa-check"></i> Various sizes available (10-40 yard
+                containers)
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Flexible rental periods up to 14
+                days
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Same-day delivery available in Cook
+                County
+              </li>
+              <li><i class="fas fa-check"></i> Pickup included in price</li>
+              <li>
+                <i class="fas fa-check"></i> Weight limits apply (varies by
+                container size)
+              </li>
+            </ul>
+            <button class="btn btn-primary btn-full">Get Free Quote</button>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-icon">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+            <h3>Junk Removal South Holland</h3>
+            <div class="price">
+              <span class="currency">Starting at</span>
+              <span class="amount">$85</span>
+            </div>
+            <p class="price-description">
+              Full-service junk removal for any amount of items in South Holland
+              and surrounding areas
+            </p>
+            <ul class="pricing-features">
+              <li>
+                <i class="fas fa-check"></i> No lifting or loading required - we
+                do it all
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Same-day service available in South
+                Holland
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Eco-friendly disposal and recycling
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Licensed and insured in Illinois
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Free estimates for all junk removal
+                projects
+              </li>
+            </ul>
+            <button class="btn btn-secondary btn-full">Get Free Quote</button>
+          </div>
+        </div>
+        <div class="pricing-note">
+          <h4>Need an exact quote for your Cook County project?</h4>
+          <p>
+            Our junk removal and dumpster rental pricing depends on several
+            factors including location within Cook County, size, weight, and
+            type of materials. Contact us for a free, no-obligation quote
+            tailored to your specific needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews" class="reviews">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Customer Reviews - Junk Removal Cook County
+          </h2>
+          <p class="section-subtitle">
+            Don't just take our word for it. Here's what real customers say
+            about our services.
+          </p>
+        </div>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">
+              "DAPS did an incredible job clearing out my basement after a
+              flood. They arrived on time, worked efficiently, and the pricing
+              was very fair. I would definitely use them again and recommend to
+              anyone needing junk removal services in Oak Lawn."
+            </p>
+            <div class="review-author">
+              <div class="author-info">
+                <h4>Sarah Johnson</h4>
+                <p>Oak Lawn, IL</p>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Needed a dumpster for a home renovation project in Tinley Park.
+              DAPS delivered exactly when they said they would and picked it up
+              promptly. Great customer service and competitive pricing. Highly
+              recommend for any dumpster rental needs!"
+            </p>
+            <div class="review-author">
+              <div class="author-info">
+                <h4>Mike Rodriguez</h4>
+                <p>Tinley Park, IL</p>
+              </div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="review-text">
+              "Professional, punctual, and reasonably priced. The team was
+              courteous and cleaned up after themselves. Made our office
+              cleanout in South Holland so much easier than expected. Will
+              definitely call DAPS again for any commercial cleanout needs."
+            </p>
+            <div class="review-author">
+              <div class="author-info">
+                <h4>Jennifer Chen</h4>
+                <p>South Holland, IL</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reviews-stats">
+          <div class="stat-item">
+            <h3>5.0</h3>
+            <p>Based on 50+ customer reviews</p>
+          </div>
+          <div class="stat-item">
+            <h3>98%</h3>
+            <p>On-time delivery rate</p>
+          </div>
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Licensed & insured</p>
+          </div>
+          <div class="stat-item">
+            <h3>24/7</h3>
+            <p>Customer support</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section id="service-areas" class="service-areas">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Junk Removal Service Area - Cook County & Beyond
+          </h2>
+          <p class="section-subtitle">
+            Proudly serving South Suburban Chicagoland with professional junk
+            removal and dumpster rental services
+          </p>
+        </div>
+        <div class="service-areas-content">
+          <div class="areas-map">
+            <img
+              src="images/service-area-map.jpg"
+              alt="DAPS junk removal service area map covering South Holland, Oak Lawn, Tinley Park and Cook County Illinois"
+              class="map-image"
+            />
+          </div>
+          <div class="areas-list">
+            <h3>South Suburban Chicago Coverage Area</h3>
+            <div class="areas-grid">
+              <div class="area-item">
+                <h4>South Holland, IL</h4>
+                <p>
+                  Complete junk removal and dumpster rental services in South
+                  Holland
+                </p>
+              </div>
+              <div class="area-item">
+                <h4>Oak Lawn, IL</h4>
+                <p>
+                  Same-day junk pickup service available for Oak Lawn residents
+                </p>
+              </div>
+              <div class="area-item">
+                <h4>Tinley Park, IL</h4>
+                <p>Residential and commercial cleanouts in Tinley Park</p>
+              </div>
+              <div class="area-item">
+                <h4>Dolton, IL</h4>
+                <p>Professional disposal and recycling services in Dolton</p>
+              </div>
+              <div class="area-item">
+                <h4>Harvey, IL</h4>
+                <p>Licensed and insured junk removal experts serving Harvey</p>
+              </div>
+              <div class="area-item">
+                <h4>Calumet City, IL</h4>
+                <p>Flexible dumpster rental periods in Calumet City</p>
+              </div>
+              <div class="area-item">
+                <h4>Homewood, IL</h4>
+                <p>Eco-friendly disposal and recycling in Homewood</p>
+              </div>
+              <div class="area-item">
+                <h4>Markham, IL</h4>
+                <p>Fast response times and competitive rates in Markham</p>
+              </div>
+            </div>
+            <div class="areas-note">
+              <p>
+                <strong>Don't see your Cook County location listed?</strong>
+              </p>
+              <p>
+                We serve the entire South Suburban Chicagoland area and
+                surrounding Cook County communities. Contact us to confirm
+                service availability in your location.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text" data-aos="fade-right">
+            <h2>Why Choose DAPS?</h2>
+            <p class="about-description">
+              With years of experience serving South Holland, Oak Lawn, and
+              Tinley Park, we've built a reputation for reliable, efficient, and
+              environmentally conscious junk removal services.
+            </p>
+            <div class="about-features">
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Same-Day Service</h4>
+                  <p>
+                    We understand urgency and provide quick, reliable service
+                    when you need it most.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Eco-Friendly</h4>
+                  <p>
+                    Committed to responsible disposal and recycling to protect
+                    our environment.
+                  </p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="feature-content">
+                  <h4>Fair Pricing</h4>
+                  <p>
+                    Transparent pricing with free estimates and no hidden fees.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image" data-aos="fade-left">
+            <div class="image-wrapper">
+              <img
+                src="images/about-team.jpg"
+                alt="DAPS team"
+                class="about-img"
+              />
+              <div class="stats-overlay">
+                <div class="stat-item">
+                  <h3>500+</h3>
+                  <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                  <h3>5+</h3>
+                  <p>Years Experience</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            Ready to get started? Contact us today for a free quote!
+          </p>
+        </div>
+        <div class="contact-content">
+          <div class="contact-info" data-aos="fade-right">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Call Us</h4>
+                <p>(555) 123-4567</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Email Us</h4>
+                <p>info@dapsjunkremoval.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Service Areas</h4>
+                <p>South Holland, Oak Lawn, Tinley Park</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form" data-aos="fade-left">
+            <form id="quote-form">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Your Phone"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <select id="service" name="service" required>
+                  <option value="">Select Service</option>
+                  <option value="junk-removal">Junk Removal</option>
+                  <option value="dumpster-rental">Dumpster Rental</option>
+                  <option value="both">Both Services</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your project..."
+                  rows="4"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">
+                Get Free Quote
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="quote" class="quote">
+      <div class="container">
+        <div class="quote-content">
+          <h2>Ready to Get Started?</h2>
+          <p>Get your free quote today and experience the DAPS difference!</p>
+          <div class="quote-buttons">
+            <button
+              class="btn btn-primary btn-large"
+              onclick="scrollToSection('contact')"
+            >
+              Get Free Quote
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <button
+              class="btn btn-secondary btn-large"
+              onclick="window.open('tel:5551234567')"
+            >
+              <i class="fas fa-phone"></i>
+              Call Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>DAPS Junk Removal</h3>
+            <p>
+              Professional junk removal and dumpster rental services serving
+              South Holland, Oak Lawn, Tinley Park, and all of Cook County,
+              Illinois.
+            </p>
+            <div class="contact-info">
+              <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+              <p><i class="fas fa-envelope"></i> info@dapsjunkremoval.com</p>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> South Holland, IL 60473
+              </p>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Local Services</h4>
+            <ul>
+              <li><a href="#services">Junk Removal South Holland</a></li>
+              <li><a href="#services">Dumpster Rental Oak Lawn</a></li>
+              <li><a href="#services">Same-Day Pickup Tinley Park</a></li>
+              <li><a href="#services">Free Estimates Cook County</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Service Areas</h4>
+            <ul>
+              <li>South Holland, IL</li>
+              <li>Oak Lawn, IL</li>
+              <li>Tinley Park, IL</li>
+              <li>Dolton, IL</li>
+              <li>Harvey, IL</li>
+              <li>Calumet City, IL</li>
+              <li>Homewood, IL</li>
+              <li>Markham, IL</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact & Hours</h4>
+            <ul>
+              <li><strong>Mon-Fri:</strong> 7:00 AM - 7:00 PM</li>
+              <li><strong>Sat-Sun:</strong> 8:00 AM - 5:00 PM</li>
+              <li>Emergency service available</li>
+              <li>
+                <a href="#quote" class="footer-cta">Call for Free Quote</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 DAPS Junk Removal. All rights reserved. Licensed and
+            insured junk removal and dumpster rental services in Cook County,
+            Illinois. Serving South Holland, Oak Lawn, Tinley Park, Dolton,
+            Harvey, Calumet City, Homewood, Markham, and surrounding Chicago
+            suburbs.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
