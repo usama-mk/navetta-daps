@@ -59,51 +59,66 @@ if (quoteForm) {
     const formData = new FormData(quoteForm);
     const data = Object.fromEntries(formData);
 
-    // Set the reply-to field to the user's email
-    const replyToField = quoteForm.querySelector('input[name="_replyto"]');
-    if (replyToField && data.email) {
-      replyToField.value = data.email;
+    // Validate required fields
+    if (!data.name || !data.email || !data.phone || !data.service) {
+      showNotification(
+        "Please fill in all required fields (Name, Email, Phone, and Service).",
+        "error"
+      );
+      return;
     }
 
     // Show loading state
     const submitBtn = quoteForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.innerHTML =
+      '<i class="fas fa-spinner fa-spin"></i> Opening Email...';
     submitBtn.disabled = true;
 
-    // Submit form to Formspree
-    fetch(quoteForm.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          // Show success message
-          showNotification(
-            "Thank you! We'll contact you soon with your free quote.",
-            "success"
-          );
-          // Reset form
-          quoteForm.reset();
-        } else {
-          throw new Error("Form submission failed");
-        }
-      })
-      .catch((error) => {
-        // Show error message
-        showNotification(
-          "Sorry, there was an error sending your request. Please try again or call us directly.",
-          "error"
-        );
-      })
-      .finally(() => {
-        // Reset button
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-      });
+    // Create email content
+    const subject = encodeURIComponent("New Quote Request - DAPS Dumpsters");
+    const body = encodeURIComponent(`
+Hello DAPS Dumpsters,
+
+I would like to request a free quote for your services.
+
+CONTACT INFORMATION:
+Name: ${data.name}
+Email: ${data.email}
+Phone: ${data.phone}
+
+SERVICE REQUESTED:
+${data.service}
+
+PROJECT DETAILS:
+${data.message || "No additional details provided"}
+
+Please contact me at your earliest convenience to discuss my project and provide a quote.
+
+Thank you,
+${data.name}
+    `);
+
+    // Create mailto link
+    const mailtoLink = `mailto:contact@dapsdumpsters.com?subject=${subject}&body=${body}`;
+
+    // Open email client
+    window.location.href = mailtoLink;
+
+    // Show success message
+    setTimeout(() => {
+      showNotification(
+        "Your email client should now be open. Please send the email to complete your quote request.",
+        "success"
+      );
+
+      // Reset form
+      quoteForm.reset();
+
+      // Reset button
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }, 1000);
   });
 }
 
