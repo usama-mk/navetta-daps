@@ -59,27 +59,51 @@ if (quoteForm) {
     const formData = new FormData(quoteForm);
     const data = Object.fromEntries(formData);
 
+    // Set the reply-to field to the user's email
+    const replyToField = quoteForm.querySelector('input[name="_replyto"]');
+    if (replyToField && data.email) {
+      replyToField.value = data.email;
+    }
+
     // Show loading state
     const submitBtn = quoteForm.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      // Show success message
-      showNotification(
-        "Thank you! We'll contact you soon with your free quote.",
-        "success"
-      );
-
-      // Reset form
-      quoteForm.reset();
-
-      // Reset button
-      submitBtn.innerHTML = originalText;
-      submitBtn.disabled = false;
-    }, 2000);
+    // Submit form to Formspree
+    fetch(quoteForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Show success message
+          showNotification(
+            "Thank you! We'll contact you soon with your free quote.",
+            "success"
+          );
+          // Reset form
+          quoteForm.reset();
+        } else {
+          throw new Error("Form submission failed");
+        }
+      })
+      .catch((error) => {
+        // Show error message
+        showNotification(
+          "Sorry, there was an error sending your request. Please try again or call us directly.",
+          "error"
+        );
+      })
+      .finally(() => {
+        // Reset button
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      });
   });
 }
 
@@ -95,7 +119,11 @@ function showNotification(message, type = "info") {
   notification.innerHTML = `
         <div class="notification-content">
             <i class="fas ${
-              type === "success" ? "fa-check-circle" : "fa-info-circle"
+              type === "success"
+                ? "fa-check-circle"
+                : type === "error"
+                ? "fa-exclamation-circle"
+                : "fa-info-circle"
             }"></i>
             <span>${message}</span>
             <button class="notification-close">
